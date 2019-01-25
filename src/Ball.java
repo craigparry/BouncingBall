@@ -8,7 +8,8 @@ public class Ball {
 
     public Ball(){
         size = 20;
-        y =480;
+        y =500;
+        x = 115;
         yDir = -randomYDir();
         xDir = randomXDir();
     }

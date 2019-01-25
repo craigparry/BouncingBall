@@ -17,32 +17,35 @@ public class BouncingBallGUI extends Application {
     private Board board = new Board();
 
     private Ball ball = new Ball();
+//    private int width =250;
+    private int height = (500 + ball.getSize());
     @Override
     public void start(Stage stage){
 
         stage.setTitle ("Bouncing Ball");
-        Canvas canvas = new Canvas(250,500);
+        Canvas canvas = new Canvas(250,520);
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         canvas.setOnMouseMoved( event -> {
             // if gamestate is new game
             if(board.getState() == Input.NEW_GAME){
+                if(event.getY() <= 520 && event.getY()>= 500)
                 ball.setx(event.getX());
             }
 
             System.out.println(" moved "
                     + event.getX()+" "+event.getY());
         });
-        canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
-            if(board.getState() == Input.NEW_GAME){
-                board.ballPlayed();
-            }
-
-            // make button activated
-
-            System . out . println (" pressed "
-                    + event . getX () + " " + event . getY ());
-        });
+//        canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
+//            if(board.getState() == Input.NEW_GAME){
+//                board.ballPlayed();
+//            }
+//
+//            // make button activated
+//
+//            System . out . println (" pressed "
+//                    + event . getX () + " " + event . getY ());
+//        });
         // MAKE A LABEL AND A BUTTON TO PUT ON THE 2ND PANE
         // MAKE A NEW PANE TO PUT AT THE BOTTOM OF THE MAIN PANE
         // WHICH WILL HOLD THE SLIDER AND THE BUTTON/LABEL
@@ -55,18 +58,37 @@ public class BouncingBallGUI extends Application {
                 ball = new Ball();
                 // deactivate button
                 reset.setDisable(true);
+
             }
         });
 
+        Button play = new Button("Play");
+        play.setDisable(false);
+        play.setOnAction( new EventHandler<ActionEvent>(){
+            @Override
+            public void handle(ActionEvent event){
+//                board.initGame();
+//                ball = new Ball();
+//                // deactivate button
+//                reset.setDisable(true);
+                if(board.getState() == Input.NEW_GAME){
+                    board.ballPlayed();
+                    ball.sety(490);
+                    play.setDisable(true);
+                }
+            }
+        });
         Label scoreLabel = new Label("Points: "+board.getScore());
         BorderPane.setAlignment(canvas, Pos.CENTER);
 
         BorderPane.setAlignment(reset,Pos.CENTER_RIGHT);
         BorderPane.setAlignment(scoreLabel,Pos.CENTER_LEFT);
+        BorderPane.setAlignment(scoreLabel,Pos.CENTER);
 
         BorderPane buttonPane = new BorderPane();
         buttonPane.setRight(reset);
         buttonPane.setLeft(scoreLabel);
+        buttonPane.setCenter(play);
         BorderPane.setAlignment(buttonPane,Pos.BOTTOM_CENTER);
 
         BorderPane borderPane = new BorderPane();
@@ -81,8 +103,11 @@ public class BouncingBallGUI extends Application {
             public void handle (long now){
                 if(now > nextTime ){
 
-                    if(board.getState() == Input.GAME_OVER){
+                    if(board.getState() != Input.NEW_GAME){
                         reset.setDisable(false);
+                    }
+                    if(board.getState() == Input.NEW_GAME){
+                        play.setDisable(false);
                     }
                     nextTime = now + Duration.ofNanos(1).toNanos();
 
@@ -100,6 +125,8 @@ public class BouncingBallGUI extends Application {
                         }
 
                     }
+                    gc.setFill(Color.GRAY);
+                    gc.fillRect(0,500,250,20);
                     gc.setFill(Color.RED);
                     if(board.getState() == Input.BALL_MOVING){
                         ball.setx(ball.getx()+ball.getXDir());
@@ -116,7 +143,7 @@ public class BouncingBallGUI extends Application {
                             board.hitWall(true);
                         }
 
-                        if(ball.gety()>= 480 || ball.gety()<= 0){
+                        if(ball.gety()>= 500 || ball.gety()<= 0){
                             ball.reverseYDir();
                             board.hitWall(true);
                         }

@@ -49,7 +49,7 @@ public class Board {
 
         if(gameBoard[col][row].getCover()){
             gameBoard[col][row].changeCover();
-            score++;
+            score += 10;
             return true;
         }
         return false;
