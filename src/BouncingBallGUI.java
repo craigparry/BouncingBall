@@ -19,7 +19,7 @@ public class BouncingBallGUI extends Application {
 
     private Ball ball = new Ball();
     //    private int width =250;
-    private int height = (500 + ball.getSize());
+    //private int height = (500 + ball.getSize());
 
     @Override
     public void start(Stage stage) {
@@ -75,7 +75,7 @@ public class BouncingBallGUI extends Application {
 //                reset.setDisable(true);
                 if (board.getState() == Input.NEW_GAME) {
                     board.ballPlayed();
-                    ball.sety(490);
+                    ball.sety(480);
                     play.setDisable(true);
                 }
             }
@@ -146,12 +146,13 @@ public class BouncingBallGUI extends Application {
                             board.hitWall(true);
                         }
 
-                        if (ball.gety() >= 500 || ball.gety() <= 0) {
+                        if (ball.gety() >= 480 || ball.gety() <= 0) {
                             ball.reverseYDir();
                             board.hitWall(true);
                         }
 
                     }
+
                     gc.fillOval(ball.getx(), ball.gety(), ball.getSize(), ball.getSize());
 
                 }
