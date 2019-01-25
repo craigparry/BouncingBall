@@ -47,14 +47,14 @@ public class BouncingBallGUI extends Application {
         // MAKE A NEW PANE TO PUT AT THE BOTTOM OF THE MAIN PANE
         // WHICH WILL HOLD THE SLIDER AND THE BUTTON/LABEL
         Button reset = new Button("Reset");
-        reset.setVisible(false);
+        reset.setDisable(true);
         reset.setOnAction( new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent event){
                 board.initGame();
                 ball = new Ball();
                 // deactivate button
-                reset.setVisible(false);
+                reset.setDisable(true);
             }
         });
 
@@ -82,7 +82,7 @@ public class BouncingBallGUI extends Application {
                 if(now > nextTime ){
 
                     if(board.getState() == Input.GAME_OVER){
-                        reset.setVisible(true);
+                        reset.setDisable(false);
                     }
                     nextTime = now + Duration.ofNanos(1).toNanos();
 
