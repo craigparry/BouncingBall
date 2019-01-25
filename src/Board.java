@@ -7,47 +7,50 @@ public class Board {
     private int wallsHit;
     private int score;
 
-    public Board(){
+    public Board() {
         gameBoard = new Tile[5][10];
         initGame();
-        score =0;
+        score = 0;
     }
-    public int getScore(){
+
+    public int getScore() {
         return score;
     }
-    public Input getState(){
+
+    public Input getState() {
         return gameState;
     }
 
-    public void ballPlayed(){
+    public void ballPlayed() {
         gameState = Input.BALL_MOVING;
     }
+
     /**
      * if the ball hits a wall then true hit is passed and increment wallsHit
      * if a block is hit false is passed and wallsHit resets to zero
      * if wallsHit is 3 the gamestate is changed  to GAME_OVER
      */
 
-    public void hitWall(boolean hit){
-        if(hit){
+    public void hitWall(boolean hit) {
+        if (hit) {
             wallsHit++;
-            if(wallsHit == 3){
+            if (wallsHit == 3) {
                 gameState = Input.GAME_OVER;
             }
         }
 
-        if(!hit){
+        if (!hit) {
             wallsHit = 0;
         }
 
 
     }
 
-    public boolean boardLocation(double x, double y){
-        int col = (int)x/50;
-        int row = (int)y/50;
+    public boolean boardLocation(double x, double y) {
+        int col = (int) x / 50;
+        int row = (int) y / 50;
 
-        if(gameBoard[col][row].getCover()){
+        if (gameBoard[col][row].getCover()) {
             gameBoard[col][row].changeCover();
             score += 10;
             return true;
@@ -55,11 +58,11 @@ public class Board {
         return false;
     }
 
-    public void initGame(){
+    public void initGame() {
         wallsHit = 0;
         gameState = Input.NEW_GAME;
-        for(int i = 0; i< 5; i++){
-            for(int j = 0; j<10; j++){
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 10; j++) {
                 gameBoard[i][j] = new Tile();
             }
         }
@@ -71,37 +74,40 @@ public class Board {
         int x;
         int y;
         int k = 0;
-        while(k < 10){
-            randx = Math.random()*5;
-            randy = Math.random()*10;
-            x = (int)randx;
-            y = (int)randy;
-            if(!gameBoard[x][y].getCover()){
+        while (k < 10) {
+            randx = Math.random() * 5;
+            randy = Math.random() * 10;
+            x = (int) randx;
+            y = (int) randy;
+            if (!gameBoard[x][y].getCover()) {
                 gameBoard[x][y].changeCover();
                 k++;
             }
         }
 
     }
+
     // make an initialize board for the reset button to work with
-    public Tile[][] getBoard(){
+    public Tile[][] getBoard() {
         return gameBoard;
     }
 
-    public class Tile{
+    public class Tile {
         private boolean cover;
 
-        public Tile(){
+        public Tile() {
             cover = false;
         }
-        public void changeCover(){
-            if(cover){
+
+        public void changeCover() {
+            if (cover) {
                 cover = false;
                 return;
             }
             cover = true;
         }
-        public boolean getCover(){
+
+        public boolean getCover() {
             return cover;
         }
     }

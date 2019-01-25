@@ -6,13 +6,14 @@ public class Ball {
     private int yDir;
     private int xDir;
 
-    public Ball(){
+    public Ball() {
         size = 20;
-        y =500;
+        y = 500;
         x = 115;
         yDir = -randomYDir();
         xDir = randomXDir();
     }
+
     // range for ball movement y value -3 through -8 for inital
     // range for x value -3 -8
     public int randomYDir() {
@@ -38,32 +39,39 @@ public class Ball {
     }
 
 
-    public int getSize(){
+    public int getSize() {
         return size;
     }
-    public double getx(){
+
+    public double getx() {
         return x;
     }
-    public void setx(double x){
+
+    public void setx(double x) {
         this.x = x;
     }
-    public double gety(){
+
+    public double gety() {
         return y;
     }
-    public void sety(double y){
-        this.y =y;
+
+    public void sety(double y) {
+        this.y = y;
     }
 
-    public int getXDir(){
+    public int getXDir() {
         return xDir;
     }
-    public int getYDir(){
+
+    public int getYDir() {
         return yDir;
     }
-    public void reverseYDir(){
+
+    public void reverseYDir() {
         yDir = -yDir;
     }
-    public void reverseXDir(){
+
+    public void reverseXDir() {
         xDir = -xDir;
     }
 }
