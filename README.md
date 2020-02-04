@@ -44,4 +44,4 @@ the edges of the tile.
 The ball is a little bit faster the more the angel is increased at this point. 
 May not have time tonight to fix the math with that. 
 
-Craig Parry 
+Craig Parry.
