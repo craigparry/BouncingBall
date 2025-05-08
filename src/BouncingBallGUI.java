@@ -1,3 +1,4 @@
+
 /**
  * Craig Parry
  * This class is used to make an instance of the Ball Class for the game
@@ -18,14 +19,13 @@ import javafx.scene.canvas.*;
 import javafx.scene.paint.*;
 import javafx.event.*;
 
-
-
 public class BouncingBallGUI extends Application {
 
     private Board board = new Board();
     private Ball ball = new Ball();
 
-    /** Overrides the start method for the application class to
+    /**
+     * Overrides the start method for the application class to
      * set up the GUI stage and apply the canvas
      *
      * @param stage
@@ -37,7 +37,9 @@ public class BouncingBallGUI extends Application {
         stage.setTitle("Bouncing Ball");
         Canvas canvas = new Canvas(250, 520);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        /**anonymous class to track the movement of the mouse
+        /**
+         * anonymous class to track the movement of the mouse
+         * 
          * @param event
          * @return void
          *
@@ -49,19 +51,19 @@ public class BouncingBallGUI extends Application {
                     ball.setx(event.getX());
             }
 
-//            System.out.println(" moved "
-//                    + event.getX() + " " + event.getY());
+            // System.out.println(" moved "
+            // + event.getX() + " " + event.getY());
         });
-//        canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
-//            if(board.getState() == Input.NEW_GAME){
-//                board.ballPlayed();
-//            }
-//
-//            // make button activated
-//
-//            System . out . println (" pressed "
-//                    + event . getX () + " " + event . getY ());
-//        });
+        // canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
+        // if(board.getState() == Input.NEW_GAME){
+        // board.ballPlayed();
+        // }
+        //
+        // // make button activated
+        //
+        // System . out . println (" pressed "
+        // + event . getX () + " " + event . getY ());
+        // });
         // MAKE A LABEL AND A BUTTON TO PUT ON THE 2ND PANE
         // MAKE A NEW PANE TO PUT AT THE BOTTOM OF THE MAIN PANE
         // WHICH WILL HOLD THE SLIDER AND THE BUTTON/LABEL
@@ -70,6 +72,7 @@ public class BouncingBallGUI extends Application {
 
         /**
          * anonymous class that handles button clicks on the reset button
+         * 
          * @param EventHandler
          */
         reset.setOnAction(new EventHandler<ActionEvent>() {
@@ -77,6 +80,7 @@ public class BouncingBallGUI extends Application {
             /**
              * overrides the handle method for the button event resets game
              * disables button, initializes new game and new ball
+             * 
              * @param ActionEvent
              * @return void
              */
@@ -94,10 +98,12 @@ public class BouncingBallGUI extends Application {
         play.setDisable(false);
         /**
          * anonymous class that handles button clicks on the play button
+         * 
          * @param EventHandler
          */
         play.setOnAction(new EventHandler<ActionEvent>() {
-            /** This method overrides the handle method for the action event
+            /**
+             * This method overrides the handle method for the action event
              * sets the ball in play and disables the play button
              *
              * @param event
@@ -105,10 +111,10 @@ public class BouncingBallGUI extends Application {
              */
             @Override
             public void handle(ActionEvent event) {
-//                board.initGame();
-//                ball = new Ball();
-//                // deactivate button
-//                reset.setDisable(true);
+                // board.initGame();
+                // ball = new Ball();
+                // // deactivate button
+                // reset.setDisable(true);
                 if (board.getState() == Input.NEW_GAME) {
                     board.ballPlayed();
                     ball.sety(480);
@@ -138,7 +144,8 @@ public class BouncingBallGUI extends Application {
         AnimationTimer a = new AnimationTimer() {
             private long nextTime = 0;
 
-            /** This method handles the animation timer and draws the state
+            /**
+             * This method handles the animation timer and draws the state
              * of the gameboard and the ball on the canvas
              *
              * @param long now
@@ -204,4 +211,3 @@ public class BouncingBallGUI extends Application {
 
     }
 }
-

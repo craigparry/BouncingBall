@@ -24,7 +24,9 @@ public class Ball {
         xDir = randomXDir();
     }
 
-    /** This method initializes creates a random Y direction for ball movement
+    /**
+     * This method initializes creates a random Y direction for ball movement
+     * 
      * @param none
      * @return int
      */
@@ -40,7 +42,10 @@ public class Ball {
 
         return (int) (Math.random() * range) + min;
     }
-    /** This method initializes creates a random X direction for ball movement
+
+    /**
+     * This method initializes creates a random X direction for ball movement
+     * 
      * @param none
      * @return int
      */
@@ -55,7 +60,9 @@ public class Ball {
         return (int) (Math.random() * range) + min;
     }
 
-    /** This method gets the size of the ball object
+    /**
+     * This method gets the size of the ball object
+     * 
      * @param none
      * @return int
      */
@@ -63,28 +70,39 @@ public class Ball {
         return size;
     }
 
-    /** this method gets the current x value of the balls location
+    /**
+     * this method gets the current x value of the balls location
+     * 
      * @param none
      * @return double
      */
     public double getx() {
         return x;
     }
-    /** this method sets the current x value of the balls location
+
+    /**
+     * this method sets the current x value of the balls location
+     * 
      * @param double
      * @return void
      */
     public void setx(double x) {
         this.x = x;
     }
-    /** this method gets the current y value of the balls location
+
+    /**
+     * this method gets the current y value of the balls location
+     * 
      * @param none
      * @return double
      */
     public double gety() {
         return y;
     }
-    /** this method sets the current y value of the balls location
+
+    /**
+     * this method sets the current y value of the balls location
+     * 
      * @param double
      * @return void
      */
@@ -92,7 +110,9 @@ public class Ball {
         this.y = y;
     }
 
-    /** This method gets the current x direction of the ball
+    /**
+     * This method gets the current x direction of the ball
+     * 
      * @param none
      * @return int
      */
@@ -100,7 +120,9 @@ public class Ball {
         return xDir;
     }
 
-    /** This method gets the current y direction of the ball
+    /**
+     * This method gets the current y direction of the ball
+     * 
      * @param none
      * @return int
      */
@@ -108,14 +130,19 @@ public class Ball {
         return yDir;
     }
 
-    /** This method reverses the y direction of the ball
+    /**
+     * This method reverses the y direction of the ball
+     * 
      * @param none
      * @return void
      */
     public void reverseYDir() {
         yDir = -yDir;
     }
-    /** This method reverses the x direction of the ball
+
+    /**
+     * This method reverses the x direction of the ball
+     * 
      * @param none
      * @return void
      */

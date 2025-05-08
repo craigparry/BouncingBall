@@ -6,10 +6,8 @@
  * Ball.java, and Board.java
  */
 
-
 public enum Input {
 
     NEW_GAME, BALL_MOVING, GAME_OVER;
-
 
 }

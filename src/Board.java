@@ -1,3 +1,4 @@
+
 /**
  * Craig Parry
  * This class is used to make an instance of the game board for the game
@@ -56,7 +57,7 @@ public class Board {
     /**
      * if the ball hits a wall then true hit is passed and increment wallsHit
      * if a block is hit false is passed and wallsHit resets to zero
-     * if wallsHit is 3 the gamestate is changed  to GAME_OVER
+     * if wallsHit is 3 the gamestate is changed to GAME_OVER
      *
      * @param boolean hit
      * @return void
@@ -113,9 +114,11 @@ public class Board {
             }
         }
 
-        /*math random for x and y coordinates for a certain
-        amount of tiles that will be covered then make those tiles
-         on the board covered*/
+        /*
+         * math random for x and y coordinates for a certain
+         * amount of tiles that will be covered then make those tiles
+         * on the board covered
+         */
         double randx = Math.random();
         double randy = Math.random();
         int x;

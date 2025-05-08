@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "BouncingBallGame",
+            "request": "launch",
+            "mainClass": "BouncingBallGame",
+            "projectName": "BouncingBall_df2c5ed3"
+            
+        },
+        {
+            "type": "java",
+            "name": "Launch JavaFX App",
+            "request": "launch",
+            "mainClass": "Main",
+            "vmArgs": "--module-path /Users/craigparry/Downloads/javafx-sdk-XX/lib --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+  }
