@@ -1,3 +1,5 @@
+package main.java.com.example;
+
 import javafx.application.Application;
 
 /**

@@ -1,3 +1,5 @@
+package main.java.com.example;
+
 /**
  * Craig Parry
  * This file is an enum that is used in the Bouncing

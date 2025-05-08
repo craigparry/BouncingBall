@@ -1,3 +1,5 @@
+package main.java.com.example;
+
 /**
  * Craig Parry
  * This class is used to make an instance of the Ball Class for the game
