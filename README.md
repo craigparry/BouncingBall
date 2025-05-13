@@ -50,4 +50,4 @@ mvn compile
 
 mvn clean package
 
-java -cp target/BouncingBall-1.0-SNAPSHOT-jar-with-dependencies.jar main.java.com.example.BouncingBallGame
+java -cp target/BouncingBall-1.0-SNAPSHOT-jar-with-dependencies.jar com.example.BouncingBallGame
