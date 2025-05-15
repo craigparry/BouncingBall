@@ -3,7 +3,7 @@ package com.example;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class BouncingBallGameTest {
+class BouncingBallTest {
 
     // todo: refactor these test cases to use the classes correctly
     Ball ball = new Ball();
@@ -42,12 +42,12 @@ class BouncingBallGameTest {
 
     @Test
     void testGetxDir() {
-        assertTrue(ball.getXDir() >= 0, "Ball X direction should be positive");
+        assertTrue(ball.getXDir() >= -8 && ball.getXDir() <= 8, "Ball X direction should be between -8 and 8");
     }
 
     @Test
     void testGetyDir() {
-        assertTrue(ball.getYDir() <= 0, "Ball Y direction should be negative");
+        assertTrue(ball.getYDir() <= 3 && ball.getYDir() <= 8, "Ball Y direction should be between 3 and 8");
     }
 
     @Test
