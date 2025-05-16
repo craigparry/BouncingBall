@@ -1,6 +1,7 @@
 package com.example;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BoardTest {
@@ -50,16 +51,38 @@ public class BoardTest {
 
     @Test
     void testBoardLocation() {
-        // assertAll("Grouped Assertions",
-        // () -> assertTrue(board.boardLocation(0, 0), "Ball should be within board
-        // bounds"),
-        // () -> assertTrue(board.boardLocation(4, 9), "Ball should be within board
-        // bounds"),
-        // () -> assertTrue(board.boardLocation(5, 5), "Ball should be out of bounds"),
-        // () -> assertTrue(board.boardLocation(4, 10), "Ball should be out of bounds"),
-        // () -> assertTrue(board.boardLocation(-1, 5), "Ball should be out of bounds"),
-        // () -> assertTrue(board.boardLocation(4, -1), "Ball should be out of
-        // bounds"));
+        // try mocking again later
+        // This is bad code, should be refactored to allow for easier testing to
+        // indicate a successful state transfer
+        // independent of the outcome of the non deterministic method
 
     }
+
+    @Test
+    void testGetBoard() {
+        Board.Tile[][] gameboard = board.getBoard();
+        assertNotNull(gameboard, "Game board should not be null");
+        assertEquals(5, gameboard.length, "Game board should have 5 rows");
+        assertEquals(10, gameboard[0].length, "Game board should have 10 columns");
+    }
+
+    @Test
+    void testChangeCover() {
+        Board gameboard = new Board();
+        boolean cover = gameboard.getBoard()[0][0].getCover();
+        gameboard.getBoard()[0][0].changeCover();
+        if (cover) {
+            assertFalse(gameboard.getBoard()[0][0].getCover(), "Tile cover should be false");
+        } else {
+            assertTrue(gameboard.getBoard()[0][0].getCover(), "Tile cover should be true");
+        }
+    }
+
+    @Test
+    void testGetCover() {
+        Board gameboard = new Board();
+        boolean cover = gameboard.getBoard()[0][0].getCover();
+        assertEquals(cover, gameboard.getBoard()[0][0].getCover(), "Tile cover should be true");
+    }
+
 }
